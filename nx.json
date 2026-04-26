@@ -65,7 +65,8 @@
         "typecheckTargetName": "typecheck",
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
-      }
+      },
+      "exclude": ["apps/text-me-admin/**/*"]
     },
     {
       "plugin": "@nx/vitest",
@@ -73,7 +74,8 @@
         "testTargetName": "test",
         "ciTargetName": "test-ci",
         "testMode": "watch"
-      }
+      },
+      "exclude": ["apps/text-me-admin/**/*"]
     },
     {
       "plugin": "@nx/expo/plugin",
