@@ -1,0 +1,139 @@
+{
+  "name": "text-me-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/text-me-api/src",
+  "projectType": "application",
+  "tags": ["type:app", "platform:node", "framework:express"],
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me-api/.env.dev -- node --watch --inspect dist/apps/text-me-api/main.js",
+        "cwd": "."
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me-api/.env.dev -- tsx watch --inspect apps/text-me-api/src/main.ts",
+          "cwd": "."
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me-api/.env.stage -- tsx watch apps/text-me-api/src/main.ts",
+          "cwd": "."
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me-api/.env.prod -- node dist/apps/text-me-api/main.js",
+          "cwd": "."
+        }
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me-api/.env.dev -- tsx watch --inspect apps/text-me-api/src/main.ts",
+        "cwd": "."
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me-api/.env.dev -- tsx watch --inspect apps/text-me-api/src/main.ts",
+          "cwd": "."
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me-api/.env.stage -- tsx watch apps/text-me-api/src/main.ts",
+          "cwd": "."
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me-api/.env.prod -- node dist/apps/text-me-api/main.js",
+          "cwd": "."
+        }
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me-api/.env.prod -- node dist/apps/text-me-api/main.js",
+        "cwd": "."
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me-api/.env.dev -- node dist/apps/text-me-api/main.js",
+          "cwd": "."
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me-api/.env.stage -- node dist/apps/text-me-api/main.js",
+          "cwd": "."
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me-api/.env.prod -- node dist/apps/text-me-api/main.js",
+          "cwd": "."
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/text-me-api",
+        "main": "apps/text-me-api/src/main.ts",
+        "tsConfig": "apps/text-me-api/tsconfig.app.json",
+        "assets": ["apps/text-me-api/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/text-me-api/webpack.config.js",
+        "generatePackageJson": true
+      },
+      "configurations": {
+        "dev": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        },
+        "stage": {
+          "optimization": true,
+          "extractLicenses": true,
+          "sourceMap": true
+        },
+        "prod": {
+          "optimization": true,
+          "extractLicenses": true,
+          "sourceMap": false,
+          "inspect": false
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/text-me-api/jest.config.cts",
+        "passWithNoTests": true
+      }
+    },
+    "test:watch": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "jest --watch",
+        "cwd": "apps/text-me-api"
+      }
+    },
+    "test:coverage": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/text-me-api"],
+      "options": {
+        "jestConfig": "apps/text-me-api/jest.config.cts",
+        "coverage": true,
+        "coverageDirectory": "../../coverage/apps/text-me-api"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit",
+        "cwd": "apps/text-me-api"
+      }
+    }
+  }
+}

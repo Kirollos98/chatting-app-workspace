@@ -3,51 +3,117 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/text-me-admin/src",
   "projectType": "application",
-  "tags": [],
+  "tags": ["type:app", "platform:web", "framework:react"],
   "targets": {
-    "serve": {
-      "executor": "@nx/vite:dev-server",
-      "defaultConfiguration": "development",
+    "dev": {
+      "executor": "nx:run-commands",
       "options": {
-        "buildTarget": "text-me-admin:build"
+        "command": "dotenv -e apps/text-me-admin/.env.dev -- vite --host",
+        "cwd": "apps/text-me-admin"
       },
       "configurations": {
-        "development": {
-          "buildTarget": "text-me-admin:build:development",
-          "hmr": true
+        "dev": {
+          "command": "dotenv -e apps/text-me-admin/.env.dev -- vite --host",
+          "cwd": "apps/text-me-admin"
         },
-        "production": {
-          "buildTarget": "text-me-admin:build:production",
-          "hmr": false
+        "stage": {
+          "command": "dotenv -e apps/text-me-admin/.env.stage -- vite --host",
+          "cwd": "apps/text-me-admin"
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me-admin/.env.prod -- vite --host",
+          "cwd": "apps/text-me-admin"
+        }
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me-admin/.env.dev -- vite --host",
+        "cwd": "apps/text-me-admin"
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me-admin/.env.dev -- vite --host",
+          "cwd": "apps/text-me-admin"
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me-admin/.env.stage -- vite --host",
+          "cwd": "apps/text-me-admin"
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me-admin/.env.prod -- vite --host",
+          "cwd": "apps/text-me-admin"
         }
       }
     },
     "build": {
-      "executor": "@nx/vite:build",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/apps/text-me-admin"],
       "options": {
-        "outputPath": "dist/apps/text-me-admin"
+        "command": "dotenv -e apps/text-me-admin/.env.prod -- vite build",
+        "cwd": "apps/text-me-admin"
       },
       "configurations": {
-        "development": {
-          "mode": "development"
+        "dev": {
+          "command": "dotenv -e apps/text-me-admin/.env.dev -- vite build --mode development",
+          "cwd": "apps/text-me-admin"
         },
-        "production": {
-          "mode": "production"
+        "stage": {
+          "command": "dotenv -e apps/text-me-admin/.env.stage -- vite build --mode staging",
+          "cwd": "apps/text-me-admin"
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me-admin/.env.prod -- vite build --mode production",
+          "cwd": "apps/text-me-admin"
         }
       }
     },
-    "test": {
-      "executor": "@nx/vite:test",
-      "outputs": ["{projectRoot}/test-output/vitest/coverage"],
+    "preview": {
+      "executor": "nx:run-commands",
       "options": {
-        "passWithNoTests": true,
-        "reportsDirectory": "./test-output/vitest"
+        "command": "vite preview --host",
+        "cwd": "apps/text-me-admin"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vitest run",
+        "cwd": "apps/text-me-admin"
+      }
+    },
+    "test:watch": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vitest watch",
+        "cwd": "apps/text-me-admin"
+      }
+    },
+    "test:ui": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vitest --ui",
+        "cwd": "apps/text-me-admin"
+      }
+    },
+    "test:coverage": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/coverage"],
+      "options": {
+        "command": "vitest run --coverage",
+        "cwd": "apps/text-me-admin"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit",
+        "cwd": "apps/text-me-admin"
+      }
     }
   }
 }

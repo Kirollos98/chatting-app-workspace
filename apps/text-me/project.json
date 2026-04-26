@@ -1,0 +1,188 @@
+{
+  "name": "text-me",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/text-me/src",
+  "projectType": "application",
+  "tags": ["type:app", "platform:mobile"],
+  "targets": {
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me/.env.dev -- expo start -c",
+        "cwd": "apps/text-me"
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me/.env.dev -- expo start -c",
+          "cwd": "apps/text-me"
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me/.env.stage -- expo start -c",
+          "cwd": "apps/text-me"
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me/.env.prod -- expo start -c",
+          "cwd": "apps/text-me"
+        }
+      }
+    },
+    "android": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me/.env.dev -- expo start -c --android",
+        "cwd": "apps/text-me"
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me/.env.dev -- expo start -c --android",
+          "cwd": "apps/text-me"
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me/.env.stage -- expo start -c --android",
+          "cwd": "apps/text-me"
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me/.env.prod -- expo start -c --android",
+          "cwd": "apps/text-me"
+        }
+      }
+    },
+    "ios": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me/.env.dev -- expo start -c --ios",
+        "cwd": "apps/text-me"
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me/.env.dev -- expo start -c --ios",
+          "cwd": "apps/text-me"
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me/.env.stage -- expo start -c --ios",
+          "cwd": "apps/text-me"
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me/.env.prod -- expo start -c --ios",
+          "cwd": "apps/text-me"
+        }
+      }
+    },
+    "run-android": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me/.env.dev -- expo run:android",
+        "cwd": "apps/text-me"
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me/.env.dev -- expo run:android",
+          "cwd": "apps/text-me"
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me/.env.stage -- expo run:android",
+          "cwd": "apps/text-me"
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me/.env.prod -- expo run:android",
+          "cwd": "apps/text-me"
+        }
+      }
+    },
+    "run-ios": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me/.env.dev -- expo run:ios",
+        "cwd": "apps/text-me"
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me/.env.dev -- expo run:ios",
+          "cwd": "apps/text-me"
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me/.env.stage -- expo run:ios",
+          "cwd": "apps/text-me"
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me/.env.prod -- expo run:ios",
+          "cwd": "apps/text-me"
+        }
+      }
+    },
+    "build-android": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me/.env.prod -- eas build --platform android --profile production",
+        "cwd": "apps/text-me"
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me/.env.dev -- eas build --platform android --profile development",
+          "cwd": "apps/text-me"
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me/.env.stage -- eas build --platform android --profile preview",
+          "cwd": "apps/text-me"
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me/.env.prod -- eas build --platform android --profile production",
+          "cwd": "apps/text-me"
+        }
+      }
+    },
+    "build-ios": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me/.env.prod -- eas build --platform ios --profile production",
+        "cwd": "apps/text-me"
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me/.env.dev -- eas build --platform ios --profile development",
+          "cwd": "apps/text-me"
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me/.env.stage -- eas build --platform ios --profile preview",
+          "cwd": "apps/text-me"
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me/.env.prod -- eas build --platform ios --profile production",
+          "cwd": "apps/text-me"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/text-me/jest.config.cts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "export": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "dotenv -e apps/text-me/.env.prod -- expo export",
+        "cwd": "apps/text-me"
+      },
+      "configurations": {
+        "dev": {
+          "command": "dotenv -e apps/text-me/.env.dev -- expo export",
+          "cwd": "apps/text-me"
+        },
+        "stage": {
+          "command": "dotenv -e apps/text-me/.env.stage -- expo export",
+          "cwd": "apps/text-me"
+        },
+        "prod": {
+          "command": "dotenv -e apps/text-me/.env.prod -- expo export",
+          "cwd": "apps/text-me"
+        }
+      }
+    }
+  }
+}
