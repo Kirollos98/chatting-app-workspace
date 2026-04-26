@@ -2,6 +2,8 @@
 
 This document lists all available npm scripts for the TextMe workspace.
 
+> 💡 **New!** Environment-specific scripts available. See [ENVIRONMENTS.md](ENVIRONMENTS.md) for detailed guide.
+
 ## 🚀 Development Scripts
 
 ### Start All Apps in Parallel
@@ -12,33 +14,48 @@ npm start
 npm run dev
 ```
 
-This runs all three apps simultaneously:
+This runs all three apps simultaneously in **development mode**:
 
 - **API** (blue) - Backend API on port 3000
 - **ADMIN** (green) - Admin dashboard on port 4200
 - **MOBILE** (magenta) - Expo mobile app
+
+### Start All Apps with Different Environments
+
+```bash
+npm run dev              # All apps in development mode (default)
+npm run dev:all:stage    # All apps in staging mode
+npm run dev:all:prod     # All apps in production mode
+```
 
 ### Run Individual Apps
 
 **Backend API**
 
 ```bash
-npm run dev:api
-# Equivalent to: npx nx serve text-me-api
+npm run dev:api          # Development mode (.env.dev)
+npm run dev:api:dev      # Development mode (.env.dev)
+npm run dev:api:stage    # Staging mode (.env.stage)
+npm run dev:api:prod     # Production mode (.env.prod)
 ```
 
 **Admin Dashboard**
 
 ```bash
-npm run dev:admin
-# Equivalent to: npx nx serve text-me-admin
+npm run dev:admin        # Development mode (.env.dev)
+npm run dev:admin:dev    # Development mode (.env.dev)
+npm run dev:admin:stage  # Staging mode (.env.stage)
+npm run dev:admin:prod   # Production mode (.env.prod)
 ```
 
 **Mobile App**
 
 ```bash
 npm run dev:mobile
-# Equivalent to: npx nx start text-me
+       # Development mode (.env.dev)
+npm run dev:mobile:dev   # Development mode (.env.dev)
+npm run dev:mobile:stage # Staging mode (.env.stage)
+npm run dev:mobile:prod  # Production mode (.env.prod)
 ```
 
 ## 🏗️ Build Scripts
@@ -46,21 +63,27 @@ npm run dev:mobile
 ### Build All Apps
 
 ```bash
-npm run build
+npm run build            # Builds all apps with production config
 ```
 
-### Build Individual Apps
+### Build Individual Apps with Environment
 
 **Backend API**
 
 ```bash
-npm run build:api
+npm run build:api        # Production mode (.env.prod)
+npm run build:api:dev    # Development mode (.env.dev)
+npm run build:api:stage  # Staging mode (.env.stage)
+npm run build:api:prod   # Production mode (.env.prod)
 ```
 
 **Admin Dashboard**
 
 ```bash
-npm run build:admin
+npm run build:admin        # Production mode (.env.prod)
+npm run build:admin:dev    # Development mode (.env.dev)
+npm run build:admin:stage  # Staging mode (.env.stage)
+npm run build:admin:prod   # Production mode (.env.prod)
 ```
 
 ## 🧪 Test Scripts

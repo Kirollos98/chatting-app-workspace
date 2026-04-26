@@ -72,4 +72,9 @@ cache/
 .env.local
 .env.*.local
 
+# Environment-specific files (keep .example files)
+apps/**/.env.dev
+apps/**/.env.stage
+apps/**/.env.prod
+
 
