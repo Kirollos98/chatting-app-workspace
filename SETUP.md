@@ -27,12 +27,14 @@ chatting-app/
 ### Installation
 
 1. **Clone the repository**
+
 ```bash
 git clone https://github.com/Kirollos98/chatting-app-workspace.git
 cd chatting-app-workspace
 ```
 
 2. **Install dependencies**
+
 ```bash
 npm install --legacy-peer-deps
 ```
@@ -54,65 +56,81 @@ cp apps/text-me/.env.example apps/text-me/.env
 
 ## 🏗️ Development
 
-### Run All Apps in Development Mode
+### Run All Apps in Parallel (Recommended)
+
+Start all three apps at once with a single command:
 
 ```bash
-# Run the backend API
-npx nx serve text-me-api
-
-# Run the admin dashboard
-npx nx serve text-me-admin
-
-# Run the mobile app
-npx nx start text-me
+npm start
+# or
+npm run dev
 ```
+
+This will run:
+
+- 🔵 Backend API on http://localhost:3000
+- 🟢 Admin Dashboard on http://localhost:4200
+- 🟣 Mobile App (follow Expo instructions)
+
+Press `Ctrl+C` to stop all apps.
 
 ### Run Individual Apps
 
 **Backend API (Express)**
+
 ```bash
-npx nx serve text-me-api
+npm run dev:api
+# or: npx nx serve text-me-api
 # API will be available at http://localhost:3000
 ```
 
 **Admin Dashboard (React + Vite)**
+
 ```bash
-npx nx serve text-me-admin
+npm run dev:admin
+# or: npx nx serve text-me-admin
 # Dashboard will be available at http://localhost:4200
 ```
 
 **Mobile App (Expo)**
+
 ```bash
-npx nx start text-me
+npm run dev:mobile
+# or: npx nx start text-me
 # Follow Expo instructions to open on iOS/Android
 ```
+
+> 💡 **Tip**: See [SCRIPTS.md](SCRIPTS.md) for a complete list of all available npm scripts.
 
 ## 🧪 Testing
 
 ```bash
 # Run all tests
-npx nx run-many -t test
+npm test
+# or: npx nx run-many -t test
 
 # Test specific app
-npx nx test text-me-api
-npx nx test text-me-admin
-npx nx test text-me
+npm run test:api
+npm run test:admin
+npm run test:mobile
 ```
 
 ## 🔨 Building
 
 ```bash
 # Build all apps
-npx nx run-many -t build
+npm run build
+# or: npx nx run-many -t build
 
 # Build specific app
-npx nx build text-me-api
-npx nx build text-me-admin
+npm run build:api
+npm run build:admin
 ```
 
 ## 📚 Technology Stack
 
 ### text-me (Mobile App)
+
 - **Framework**: React Native with Expo
 - **Router**: Expo Router (file-based routing)
 - **State Management**: MobX
@@ -120,12 +138,14 @@ npx nx build text-me-admin
 - **Language**: TypeScript
 
 ### text-me-api (Backend)
+
 - **Framework**: Express.js
 - **Language**: TypeScript
 - **Testing**: Jest
 - **Environment**: dotenv
 
 ### text-me-admin (Admin Dashboard)
+
 - **Framework**: React
 - **Bundler**: Vite
 - **Styling**: Tailwind CSS (ready for shadcn/ui)
@@ -135,6 +155,7 @@ npx nx build text-me-admin
 - **Language**: TypeScript
 
 ### Shared Libraries
+
 - **@textme/shared-types**: Common TypeScript interfaces and types
 - **@textme/shared-utils**: Shared utility functions
 
@@ -160,12 +181,15 @@ npx nx reset
 ## 📝 Adding New Features
 
 ### Create a New Library
+
 ```bash
 npx nx g @nx/js:library my-new-lib --directory=packages/my-new-lib
 ```
 
 ### Add Dependencies Between Projects
+
 Use the link-workspace-packages skill or manually add to package.json:
+
 ```bash
 npm install @textme/shared-types --workspace text-me-api
 ```
@@ -173,18 +197,22 @@ npm install @textme/shared-types --workspace text-me-api
 ## 🐛 Troubleshooting
 
 ### Vite Native Binding Issues
+
 If you encounter native binding errors with Vite:
+
 ```bash
 rm -rf node_modules package-lock.json
 npm install --legacy-peer-deps
 ```
 
 ### Expo Not Starting
+
 ```bash
 npx expo start --clear
 ```
 
 ### API Port Already in Use
+
 Change the PORT in `apps/text-me-api/.env`
 
 ## 📖 Documentation
