@@ -1,0 +1,8 @@
+{
+  "name": "@org/text-me-admin",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "text-me-admin"
+  }
+}

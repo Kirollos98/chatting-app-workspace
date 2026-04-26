@@ -1,0 +1,27 @@
+{
+  "name": "@org/text-me-api-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "text-me-api-e2e",
+    "implicitDependencies": [
+      "text-me-api"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/text-me-api-e2e/jest.config.cts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "text-me-api:build",
+          "text-me-api:serve"
+        ]
+      }
+    }
+  }
+}
