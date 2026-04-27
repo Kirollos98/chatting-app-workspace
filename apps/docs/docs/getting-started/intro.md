@@ -1,6 +1,16 @@
-# TextMe Chatting App
+# Welcome to TextMe Documentation
 
 A full-stack chatting application built with Nx monorepo, featuring a React Native mobile app, Express.js backend, and React admin dashboard.
+
+## 📦 What's Inside
+
+This workspace contains:
+
+- **text-me** - React Native mobile app (Expo + MobX)
+- **text-me-api** - Express.js backend API
+- **text-me-admin** - React admin dashboard (Vite + Tailwind + React Query)
+- **@textme/shared-types** - Shared TypeScript types
+- **@textme/shared-utils** - Shared utilities
 
 ## 🚀 Quick Start
 
@@ -16,29 +26,6 @@ cp apps/text-me/.env.example apps/text-me/.env
 # Start all apps in parallel
 npm start
 ```
-
-## 📦 What's Inside
-
-- **text-me** - React Native mobile app (Expo + MobX)
-- **text-me-api** - Express.js backend API
-- **text-me-admin** - React admin dashboard (Vite + Tailwind + React Query)
-- **@textme/shared-types** - Shared TypeScript types
-- **@textme/shared-utils** - Shared utilities
-
-## 📖 Documentation
-
-**[📚 Full Documentation Site](apps/docs)** - Browse the complete documentation at `http://localhost:3000` by running:
-
-```bash
-npm run dev:docs
-```
-
-The documentation includes:
-- **Getting Started** - Installation, setup, and quick start guides  
-- **Guides** - Step-by-step tutorials for environment and script configuration
-- **Reference** - Command reference and configuration details
-- **Troubleshooting** - Common issues and solutions for each app
-- **Archive** - Historical documentation and resolved issues
 
 ## 🎯 Common Commands
 
@@ -69,31 +56,41 @@ npm run graph          # View project graph
 ## 🛠️ Technology Stack
 
 ### Mobile App (text-me)
-
 - React Native + Expo
 - Expo Router
 - MobX
 - Jest
 
 ### Backend (text-me-api)
-
 - Express.js
 - TypeScript
 - dotenv
 - Jest
 
 ### Admin Dashboard (text-me-admin)
-
 - React
 - Vite
 - Tailwind CSS
 - React Query
 - Vitest
 
+## 📖 Documentation Structure
+
+This documentation is organized into the following sections:
+
+- **Getting Started** - Installation, setup, and quick start guides
+- **Guides** - Step-by-step tutorials for common tasks
+- **Reference** - Command reference and configuration details
+- **Development** - Development workflow and best practices
+- **Troubleshooting** - Common issues and solutions
+- **Archive** - Historical documentation and resolved issues
+
+## Next Steps
+
+1. Read the [Setup Guide](./setup.md) for detailed installation instructions
+2. Check out the [Guides](../guides/environments-setup.md) for environment configuration
+3. Browse the [Reference](../reference/commands.md) for command documentation
+
 ---
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
-
 ✨ Built with [Nx workspace](https://nx.dev) ✨
-
-[Learn more about Nx](https://nx.dev) or run `npx nx graph` to visualize the project graph.

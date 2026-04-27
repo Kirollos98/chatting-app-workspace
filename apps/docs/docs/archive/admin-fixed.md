@@ -24,7 +24,7 @@ Cannot find module '@rolldown/binding-darwin-arm64'
 
 ✅ **Compatibility:** Works with Node.js 18.x, 20.x, 21.x, and 22.x
 ✅ **Stability:** Production-ready, battle-tested version
-✅ **Performance:** Still incredibly fast (ready in <350ms)
+✅ **Performance:** Still incredibly fast (ready in less than 350ms)
 ✅ **Features:** All modern Vite features we need (HMR, ESM, etc.)
 
 ## Verification - All Tests Pass! ✅
@@ -123,7 +123,7 @@ npx nx lint text-me-admin
 | Metric | Value |
 |--------|-------|
 | Dev server start | 87-327ms |
-| HMR update | <50ms |
+| HMR update | less than 50ms |
 | Production build | 1.16s |
 | Bundle size (gzipped) | 83.17 KB |
 

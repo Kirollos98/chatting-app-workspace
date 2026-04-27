@@ -146,7 +146,7 @@ npm run dev:admin:prod
 **Features:**
 
 - ⚡ Instant HMR (Hot Module Replacement)
-- ⚡ Fast server start (<1 second)
+- ⚡ Fast server start (less than 1 second)
 - 🌐 Network accessible (`--host` flag)
 - 📱 Test on mobile devices
 
@@ -412,7 +412,7 @@ lsof -i :3000    # Backend
 lsof -i :5173    # Admin
 lsof -i :8081    # Mobile
 
-kill -9 <PID>
+kill -9 PID
 ```
 
 ### Environment Variables Not Loading
@@ -444,7 +444,7 @@ nvm use 22
 
 ```bash
 # Type check first
-npx nx run <app>:typecheck
+npx nx run APP:typecheck
 
 # Clean and rebuild
 rm -rf dist node_modules/.cache
